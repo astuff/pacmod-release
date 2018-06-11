@@ -1,0 +1,12 @@
+Source: ros-lunar-pacmod
+Section: misc
+Priority: extra
+Maintainer: AutonomouStuff Software Team <software@autonomoustuff.com>
+Build-Depends: debhelper (>= 9.0.0), ros-lunar-can-msgs, ros-lunar-catkin, ros-lunar-pacmod-msgs, ros-lunar-roscpp, ros-lunar-roslint, ros-lunar-std-msgs
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-lunar-pacmod
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-lunar-can-msgs, ros-lunar-pacmod-msgs, ros-lunar-roscpp, ros-lunar-std-msgs
+Description: AutonomouStuff PACMod driver package

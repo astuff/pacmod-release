@@ -13,17 +13,12 @@ find_package(catkin REQUIRED COMPONENTS
   roslint
 )
 
-catkin_package(CATKIN_DEPENDS
-  roscpp
-  std_msgs 
-  pacmod_msgs
-  can_msgs
-)
+catkin_package()
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include/${PROJECT_NAME}
+  include/
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -46,6 +41,13 @@ target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
 )
 
+set(ROSLINT_CPP_OPTS "--filter=-build/namespaces,-build/c++11")
+roslint_cpp()
+
+if(CATKIN_ENABLE_TESTING)
+  roslint_add_test()
+endif()
+
 install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
@@ -55,6 +57,3 @@ install(TARGETS ${PROJECT_NAME}
 install(DIRECTORY launch/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )
-
-set(ROSLINT_CPP_OPTS "--filter=-build/include_what_you_use,-build/namespaces,-build/c++11")
-roslint_cpp()

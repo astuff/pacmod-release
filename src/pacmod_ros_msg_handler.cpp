@@ -1,16 +1,34 @@
-/*
-* Unpublished Copyright (c) 2009-2017 AutonomouStuff, LLC, All Rights Reserved.
-*
-* This file is part of the PACMod ROS 1.0 driver which is released under the MIT license.
-* See file LICENSE included with this software or go to https://opensource.org/licenses/MIT for full license details.
-*/
+// Copyright (c) 2019 AutonomouStuff, LLC
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
-#include <pacmod_ros_msg_handler.h>
+#include <pacmod/pacmod_ros_msg_handler.h>
 
 #include <string>
 #include <vector>
 
-using namespace AS::Drivers::PACMod;
+namespace AS
+{
+namespace Drivers
+{
+namespace PACMod
+{
 
 LockedData::LockedData() :
   _data(),
@@ -287,9 +305,9 @@ void PacmodTxRosMsgHandler::fillSteeringPIDRpt1(const std::shared_ptr<PacmodTxMs
   auto dc_parser = std::dynamic_pointer_cast<SteeringPIDRpt1Msg>(parser_class);
 
   new_msg->dt = dc_parser->dt;
-  new_msg->Kp = dc_parser->Kp;
-  new_msg->Ki = dc_parser->Ki;
-  new_msg->Kd = dc_parser->Kd;
+  new_msg->kp = dc_parser->kp;
+  new_msg->ki = dc_parser->ki;
+  new_msg->kd = dc_parser->kd;
 
   new_msg->header.frame_id = frame_id;
   new_msg->header.stamp = ros::Time::now();
@@ -301,9 +319,9 @@ void PacmodTxRosMsgHandler::fillSteeringPIDRpt2(const std::shared_ptr<PacmodTxMs
 {
   auto dc_parser = std::dynamic_pointer_cast<SteeringPIDRpt2Msg>(parser_class);
 
-  new_msg->P_term = dc_parser->P_term;
-  new_msg->I_term = dc_parser->I_term;
-  new_msg->D_term = dc_parser->D_term;
+  new_msg->p_term = dc_parser->p_term;
+  new_msg->i_term = dc_parser->i_term;
+  new_msg->d_term = dc_parser->d_term;
   new_msg->all_terms = dc_parser->all_terms;
 
   new_msg->header.frame_id = frame_id;
@@ -478,3 +496,7 @@ std::vector<uint8_t> PacmodRxRosMsgHandler::unpackAndEncode(const int64_t& can_i
     return encoder.data;
   }
 }
+
+}  // namespace PACMod
+}  // namespace Drivers
+}  // namespace AS

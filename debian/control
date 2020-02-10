@@ -1,0 +1,12 @@
+Source: ros-melodic-pacmod
+Section: misc
+Priority: optional
+Maintainer: AutonomouStuff Software Team <software@autonomoustuff.com>
+Build-Depends: debhelper (>= 9.0.0), ros-melodic-can-msgs, ros-melodic-catkin, ros-melodic-pacmod-msgs, ros-melodic-roscpp, ros-melodic-roslint, ros-melodic-std-msgs
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-melodic-pacmod
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-melodic-can-msgs, ros-melodic-pacmod-msgs, ros-melodic-roscpp, ros-melodic-std-msgs
+Description: AutonomouStuff PACMod driver package

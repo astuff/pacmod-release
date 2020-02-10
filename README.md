@@ -1,3 +1,26 @@
+## pacmod (melodic) - 2.1.0-1
+
+The packages in the `pacmod` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --rosdistro melodic --track melodic pacmod` on `Mon, 10 Feb 2020 21:55:25 -0000`
+
+The `pacmod` package was released.
+
+Version of package(s) in repository `pacmod`:
+
+- upstream repository: https://github.com/astuff/pacmod.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `2.1.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.9.1`
+- catkin_pkg version: `0.4.10`
+- rosdep version: `0.18.0`
+- rosdistro version: `0.8.0`
+- vcstools version: `0.1.42`
+
+
 ## pacmod (kinetic) - 2.1.0-1
 
 The packages in the `pacmod` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --rosdistro kinetic --track kinetic pacmod --edit` on `Mon, 10 Feb 2020 21:44:10 -0000`
